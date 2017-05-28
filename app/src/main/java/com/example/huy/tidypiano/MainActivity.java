@@ -1,5 +1,6 @@
 package com.example.huy.tidypiano;
 
+import android.media.MediaPlayer;
 import android.nfc.Tag;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
@@ -23,8 +24,22 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
         setContentView(R.layout.activity_main);
+
+        //Add sound
+        final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.sound_1);
+        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.sound_2);
+        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.sound_3);
+        final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.sound_4);
+        final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.sound_5);
+        final MediaPlayer mp6 = MediaPlayer.create(this, R.raw.sound_6);
+        final MediaPlayer mp7 = MediaPlayer.create(this, R.raw.sound_7);
+        final MediaPlayer mp8 = MediaPlayer.create(this, R.raw.sound_8);
+        final MediaPlayer mp9 = MediaPlayer.create(this, R.raw.sound_9);
+        final MediaPlayer mp10 = MediaPlayer.create(this, R.raw.sound_10);
+        final MediaPlayer mp11 = MediaPlayer.create(this, R.raw.sound_11);
+        final MediaPlayer mp12 = MediaPlayer.create(this, R.raw.sound_12);
+
         iv1 = (ImageView) findViewById(R.id.iv_1);
         iv2 = (ImageView) findViewById(R.id.iv_2);
         iv3 = (ImageView) findViewById(R.id.iv_3);
@@ -57,6 +72,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv1.setImageResource(R.drawable.pressed_white_key);
+                        mp1.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -74,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv2.setImageResource(R.drawable.pressed_white_key);
+                        mp2.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -91,6 +108,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv3.setImageResource(R.drawable.pressed_white_key);
+                        mp3.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -108,6 +126,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv4.setImageResource(R.drawable.pressed_white_key);
+                        mp4.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -125,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv5.setImageResource(R.drawable.pressed_white_key);
+                        mp5.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -142,6 +162,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv6.setImageResource(R.drawable.pressed_white_key);
+                        mp6.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -159,6 +180,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv7.setImageResource(R.drawable.pressed_white_key);
+                        mp7.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -176,6 +198,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv8.setImageResource(R.drawable.pressed_black_key);
+                        mp8.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -193,6 +216,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv9.setImageResource(R.drawable.pressed_black_key);
+                        mp9.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -210,6 +234,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv10.setImageResource(R.drawable.pressed_black_key);
+                        mp10.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -227,6 +252,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv11.setImageResource(R.drawable.pressed_black_key);
+                        mp11.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
@@ -244,6 +270,7 @@ public class MainActivity extends AppCompatActivity {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
                         iv12.setImageResource(R.drawable.pressed_black_key);
+                        mp12.start();
                         return true;
                     }
                     case MotionEvent.ACTION_UP: {
