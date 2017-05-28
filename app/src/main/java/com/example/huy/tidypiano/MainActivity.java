@@ -56,13 +56,200 @@ public class MainActivity extends AppCompatActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 switch (event.getAction()) {
                     case MotionEvent.ACTION_DOWN: {
-                        Log.d(TAG, "onTouch: Pressed");
                         iv1.setImageResource(R.drawable.pressed_white_key);
-                    } break;
+                        return true;
+                    }
                     case MotionEvent.ACTION_UP: {
-                        Log.d(TAG, "onTouch: Released");
                         iv1.setImageResource(R.drawable.default_white_key);
-                    } break;
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv2.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv2.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv3.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv3.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv3.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv4.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv4.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv4.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv5.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv5.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv5.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv6.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv6.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv6.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv7.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv7.setImageResource(R.drawable.pressed_white_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv7.setImageResource(R.drawable.default_white_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv8.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv8.setImageResource(R.drawable.pressed_black_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv8.setImageResource(R.drawable.default_black_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv9.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv9.setImageResource(R.drawable.pressed_black_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv9.setImageResource(R.drawable.default_black_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv10.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv10.setImageResource(R.drawable.pressed_black_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv10.setImageResource(R.drawable.default_black_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv11.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv11.setImageResource(R.drawable.pressed_black_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv11.setImageResource(R.drawable.default_black_key);
+                        return true;
+                    }
+                }
+                return false;
+            }
+        });
+
+        iv12.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                switch (event.getAction()) {
+                    case MotionEvent.ACTION_DOWN: {
+                        iv12.setImageResource(R.drawable.pressed_black_key);
+                        return true;
+                    }
+                    case MotionEvent.ACTION_UP: {
+                        iv12.setImageResource(R.drawable.default_black_key);
+                        return true;
+                    }
                 }
                 return false;
             }
