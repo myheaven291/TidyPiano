@@ -1,8 +1,5 @@
 package com.example.huy.tidypiano;
 
-import android.media.MediaPlayer;
-import android.nfc.Tag;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,276 +7,61 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 
-public class MainActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity{
     private static final String TAG = MainActivity.class.toString();
-    ImageView iv1, iv2, iv3, iv4, iv5, iv6, iv7, iv8, iv9, iv10, iv11, iv12;
-
+    private List<ImageView> blackKeys;
+    private List<ImageView> whiteKeys;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_main);
+        blackKeys = new ArrayList<>();
+        whiteKeys = new ArrayList<>();
 
-        //Add sound
-        final MediaPlayer mp1 = MediaPlayer.create(this, R.raw.sound_1);
-        final MediaPlayer mp2 = MediaPlayer.create(this, R.raw.sound_2);
-        final MediaPlayer mp3 = MediaPlayer.create(this, R.raw.sound_3);
-        final MediaPlayer mp4 = MediaPlayer.create(this, R.raw.sound_4);
-        final MediaPlayer mp5 = MediaPlayer.create(this, R.raw.sound_5);
-        final MediaPlayer mp6 = MediaPlayer.create(this, R.raw.sound_6);
-        final MediaPlayer mp7 = MediaPlayer.create(this, R.raw.sound_7);
-        final MediaPlayer mp8 = MediaPlayer.create(this, R.raw.sound_8);
-        final MediaPlayer mp9 = MediaPlayer.create(this, R.raw.sound_9);
-        final MediaPlayer mp10 = MediaPlayer.create(this, R.raw.sound_10);
-        final MediaPlayer mp11 = MediaPlayer.create(this, R.raw.sound_11);
-        final MediaPlayer mp12 = MediaPlayer.create(this, R.raw.sound_12);
+        blackKeys.add((ImageView)findViewById(R.id.iv_black_1));
+        blackKeys.add((ImageView)findViewById(R.id.iv_black_2));
+        blackKeys.add((ImageView)findViewById(R.id.iv_black_3));
+        blackKeys.add((ImageView)findViewById(R.id.iv_black_4));
+        blackKeys.add((ImageView)findViewById(R.id.iv_black_5));
 
-        iv1 = (ImageView) findViewById(R.id.iv_1);
-        iv2 = (ImageView) findViewById(R.id.iv_2);
-        iv3 = (ImageView) findViewById(R.id.iv_3);
-        iv4 = (ImageView) findViewById(R.id.iv_4);
-        iv5 = (ImageView) findViewById(R.id.iv_5);
-        iv6 = (ImageView) findViewById(R.id.iv_6);
-        iv7 = (ImageView) findViewById(R.id.iv_7);
-        iv8 = (ImageView) findViewById(R.id.iv_8);
-        iv9 = (ImageView) findViewById(R.id.iv_9);
-        iv10 = (ImageView) findViewById(R.id.iv_10);
-        iv11 = (ImageView) findViewById(R.id.iv_11);
-        iv12 = (ImageView) findViewById(R.id.iv_12);
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_1));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_2));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_3));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_4));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_5));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_6));
+        whiteKeys.add((ImageView)findViewById(R.id.iv_white_7));
+    }
 
-        iv1.setImageResource(R.drawable.default_white_key);
-        iv2.setImageResource(R.drawable.default_white_key);
-        iv3.setImageResource(R.drawable.default_white_key);
-        iv4.setImageResource(R.drawable.default_white_key);
-        iv5.setImageResource(R.drawable.default_white_key);
-        iv6.setImageResource(R.drawable.default_white_key);
-        iv7.setImageResource(R.drawable.default_white_key);
-        iv8.setImageResource(R.drawable.default_black_key);
-        iv9.setImageResource(R.drawable.default_black_key);
-        iv10.setImageResource(R.drawable.default_black_key);
-        iv11.setImageResource(R.drawable.default_black_key);
-        iv12.setImageResource(R.drawable.default_black_key);
-
-        iv1.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv1.setImageResource(R.drawable.pressed_white_key);
-                        mp1.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv1.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        for(ImageView blackKey : blackKeys){
+            if(isInside(event.getX(), event.getY(), blackKey )){
+                Log.d(TAG, "Black" +" "+ blackKey.getTag());
             }
-        });
+        }
 
-        iv2.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv2.setImageResource(R.drawable.pressed_white_key);
-                        mp2.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv2.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
+        for(ImageView whiteKey : whiteKeys){
+            if(isInside(event.getX(), event.getY(), whiteKey))
+            Log.d(TAG, "White" +" "+ whiteKey.getTag());
+        }
+        return super.onTouchEvent(event);
+    }
+    public boolean isInside(float x, float y, View v){
+        int[] location = new int[2];
+        v.getLocationOnScreen(location);
+        int left = location[0];
+        int top = location[1];
+        int right = left + v.getWidth();
+        int bot = top + v.getHeight();
 
-        iv3.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv3.setImageResource(R.drawable.pressed_white_key);
-                        mp3.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv3.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv4.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv4.setImageResource(R.drawable.pressed_white_key);
-                        mp4.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv4.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv5.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv5.setImageResource(R.drawable.pressed_white_key);
-                        mp5.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv5.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv6.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv6.setImageResource(R.drawable.pressed_white_key);
-                        mp6.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv6.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv7.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv7.setImageResource(R.drawable.pressed_white_key);
-                        mp7.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv7.setImageResource(R.drawable.default_white_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv8.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv8.setImageResource(R.drawable.pressed_black_key);
-                        mp8.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv8.setImageResource(R.drawable.default_black_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv9.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv9.setImageResource(R.drawable.pressed_black_key);
-                        mp9.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv9.setImageResource(R.drawable.default_black_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv10.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv10.setImageResource(R.drawable.pressed_black_key);
-                        mp10.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv10.setImageResource(R.drawable.default_black_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv11.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv11.setImageResource(R.drawable.pressed_black_key);
-                        mp11.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv11.setImageResource(R.drawable.default_black_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
-
-        iv12.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                switch (event.getAction()) {
-                    case MotionEvent.ACTION_DOWN: {
-                        iv12.setImageResource(R.drawable.pressed_black_key);
-                        mp12.start();
-                        return true;
-                    }
-                    case MotionEvent.ACTION_UP: {
-                        iv12.setImageResource(R.drawable.default_black_key);
-                        return true;
-                    }
-                }
-                return false;
-            }
-        });
+        return x > left && x < right && y > top && y < bot;
     }
 }
